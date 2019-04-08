@@ -2,7 +2,7 @@ import React, { FC, useState, useEffect } from 'react'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom"
 
 import { Index, About, Article } from "./pages/Index"
-import { AppHeader } from "./header/AppHeader"
+import { AppHeader } from "./components/AppHeader"
 import "./App.css"
 
 export const App: FC = () => {
