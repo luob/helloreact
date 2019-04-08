@@ -1,13 +1,37 @@
-import React, { FC } from "react"
+import React, { FC, useEffect } from "react"
 
+export const Layout: FC = ({ children }) => {
+    useEffect(() => {
+        console.log("layout rerender")
+    })
+    useEffect(() => {
+        console.log("layout rerender2")
+    }, [])
+    return (<>
+        <p>this is layout wrapper</p>
+        {children}
+    </>)
+}
 export const Index: FC = ({ }) => {
-    return <p>hello, this is index page</p>
+    return (
+        <Layout>
+            <p>hello, this is index page</p>
+        </Layout>
+    )
 }
 
 export const About: FC = ({ }) => {
-    return <p>hello, this is about page</p>
+    return (
+        <Layout>
+            <p>hello, this is about page</p>
+        </Layout>
+    )
 }
 
 export const Article: FC = ({ }) => {
-    return <p>hello, this is article page</p>
+    return (
+        <Layout>
+            <p>hello, this is article page</p>
+        </Layout>
+    )
 }

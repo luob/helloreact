@@ -43,10 +43,10 @@ Find out more about deployment here: [https://bit.ly/CRA-deploy](https://bit.ly/
 
 ### Router
 
-1. Full history method support
-2. Maybe need learning RXJS ?
 3. baseurl support
 4. extract path variable
+5. we don't need something called Router-Link, just use multipage
+6. code split
 
 ### Site
 

@@ -1,31 +1,32 @@
-import React, { FC } from 'react';
-import logo from './logo.svg';
-
-import { Router, View, Link } from "./router"
+import React, { FC, useState, useEffect } from 'react'
+import { BrowserRouter as Router, Route, Link } from "react-router-dom"
 
 import { Index, About, Article } from "./pages/Index"
+import { AppHeader } from "./header/AppHeader"
+import "./App.css"
 
-export const App: FC = ({ }) => {
-  const routes = [{
-    path: "/index",
-    component: Index
-  }, {
-    path: "/About",
-    component: About
-  }, {
-    path: "/article",
-    component: Article
-  }]
+export const App: FC = () => {
   return (
     <Router>
-      <div className="App">
+      <AppHeader></AppHeader>
+      <nav>
         <ul>
-          <Link to="/index">Index</Link>
-          <Link to="/about">About</Link>
-          <Link to="/article">About</Link>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about/">About</Link>
+          </li>
+          <li>
+            <Link to="/users/">Users</Link>
+          </li>
         </ul>
-        <View routes={routes} noMatch={About}></View>
-      </div>
+      </nav>
+
+      <Route path="/" exact component={Index} />
+      <Route path="/about/" component={About} />
+      <Route path="/users/" component={Article} />
     </Router>
   )
 }
+
