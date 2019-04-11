@@ -4,9 +4,11 @@ import { render } from 'react-dom'
 import { App } from './app/App'
 import * as serviceWorker from './serviceWorker'
 
+import "./css/index.css"
+
 render(
-    createElement(App),
-    document.getElementById('root')
+  createElement(App),
+  document.getElementById('root')
 )
 
 // If you want your app to work offline and load faster, you can change

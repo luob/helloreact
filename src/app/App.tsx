@@ -1,32 +1,11 @@
-import React, { FC, useState, useEffect } from 'react'
-import { BrowserRouter as Router, Route, Link } from "react-router-dom"
+import React, { FC, useReducer, useState } from 'react'
 
-import { Index, About, Article } from "./pages/Index"
-import { AppHeader } from "./components/AppHeader"
-import "./App.css"
+import { initialState, reducer } from './app.reducer'
+import { MajInput } from './components/MajInput'
 
 export const App: FC = () => {
-  return (
-    <Router>
-      <AppHeader></AppHeader>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/about/">About</Link>
-          </li>
-          <li>
-            <Link to="/users/">Users</Link>
-          </li>
-        </ul>
-      </nav>
-
-      <Route path="/" exact component={Index} />
-      <Route path="/about/" component={About} />
-      <Route path="/users/" component={Article} />
-    </Router>
-  )
+  const [state, dispatch] = useReducer(reducer, initialState)
+  return (<>
+    <MajInput state={state} dispatch={dispatch} />
+  </>)
 }
-
