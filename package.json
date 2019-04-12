@@ -4,22 +4,19 @@
   "private": true,
   "dependencies": {
     "@types/jest": "24.0.11",
-    "@types/node": "11.13.0",
-    "@types/react": "16.8.12",
-    "@types/react-dom": "16.8.3",
-    "gh-pages": "^2.0.1",
+    "@types/node": "11.13.4",
+    "@types/react": "16.8.13",
+    "@types/react-dom": "16.8.4",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "2.1.8",
-    "typescript": "3.4.1"
+    "typescript": "3.4.3"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "postbuild": "cp build/index.html build/404.html",
     "test": "react-scripts test",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -29,6 +26,5 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ],
-  "homepage": "https://luob.github.io/helloreact"
+  ]
 }

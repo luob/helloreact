@@ -4,7 +4,10 @@ body {
   font-family: -apple-system, BlinkMacSystemFont;
 }
 
-
+#app {
+  width: 400px;
+  min-height: 500px;
+}
 .input-tiles>.tile {
   display: inline-block;
 }

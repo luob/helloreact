@@ -1,8 +1,6 @@
 {
   "short_name": "React App",
   "name": "Create React App Sample",
-  "manifest_version": 2,
-  "version": "v0.1.0",
   "icons": [
     {
       "src": "favicon.ico",
@@ -13,10 +11,5 @@
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#ffffff",
-  "browser_action": {
-    "default_icon": "favicon.ico",
-    "default_popup": "index.html",
-    "default_title": "Open the popup"
-  }
+  "background_color": "#ffffff"
 }
