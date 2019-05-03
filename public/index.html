@@ -11,6 +11,17 @@
 <body>
   <noscript>You need to enable JavaScript to run this app.</noscript>
   <div id="root"></div>
+  <script src="./wasm_exec.js"></script>
+  <script>
+    (async () => {
+      const go = new Go()
+      const response = await fetch('./tanyao.wasm')
+      const buffer = await response.arrayBuffer()
+      const obj = await WebAssembly.instantiate(buffer, go.importObject)
+      go.run(obj.instance)
+    })()
+
+  </script>
 </body>
 
 </html>

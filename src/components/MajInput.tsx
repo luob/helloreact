@@ -1,32 +1,26 @@
-import React, { FC } from "react"
+import React, { useState, FC, ChangeEventHandler } from "react"
 
-// import { useMajState, useMajDispatch } from "reducers/maj.reducer";
-// import { tilesToTenhon } from "utils/tile.util"
+import { tilesToTenhou, tenhouToTiles } from "utils/tenhou"
 
-// export const MajInput: FC = ({ }) => {
-//   const { tiles, option } = useMajState()
-//   const dispatch = useMajDispatch()
-//   const calcTempai = () => {
-//     dispatch({ type: 'SET_TILES', tiles: tiles })
-//     // do search
-//   }
-//   return (
-//     <div className="input">
-//       <div className="input__tiles">
-//         {tiles.map((tile, i) => (
-//           <div className="tile" key={i}>
-//             <img src={`./image/mahjong/${tile}.png`} alt="" />
-//           </div>
-//         ))}
-//       </div>
-//       <div className="input__tenhon">
-//         {tilesToTenhon(tiles)}
-//       </div>
-//       <div className="input__buttons">
-//         <button onClick={() => calcTempai()}>计算听牌</button>
-//         <button onClick={() => calcTempai()}>计算牌效</button>
-//       </div>
-//       <div className="">
-//     </div>
-//   )
-// }
+type Props = {
+  tiles: number[]
+  startWith: (tiles: number[]) => void
+}
+
+export const MajInput: FC<Props> = ({ tiles, startWith }) => {
+  const [tenhouStr, setTenhouStr] = useState(tilesToTenhou(tiles))
+  const onChange: ChangeEventHandler<HTMLInputElement> = (evt) => {
+    setTenhouStr(evt.target.value)
+  }
+  const submit = () => {
+    console.log(tenhouStr)
+    startWith(tenhouToTiles(tenhouStr))
+  }
+  return (
+    <div className="input-tenhou">
+      <input type="text" value={tenhouStr} onChange={onChange} />
+      <button onClick={submit}> 计算</button>
+    </div>
+  )
+}
+

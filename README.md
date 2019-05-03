@@ -42,3 +42,9 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+1 2 3 1 清空
+4 5 6 2 退格
+7 8 9 3 牌效
+m p s z 听牌
+1 2 3 4 算分

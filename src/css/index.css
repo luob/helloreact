@@ -1,0 +1,39 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.hidden {
+  display: none;
+}
+
+.app {
+  background-color: #ffc;
+  width: 610px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.tiles {
+  width: 100%;
+  padding: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.tile>img {
+  display: block;
+  width: 35px;
+}
+
+
