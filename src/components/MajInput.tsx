@@ -1,25 +1,30 @@
-import React, { useState, FC, ChangeEventHandler } from "react"
+import React, { useState, FC, Dispatch } from "react"
 
 import { tilesToTenhou, tenhouToTiles } from "utils/tenhou"
+import { initialTiles, fillHand } from 'utils/tiles'
+
+import { MajTiles } from 'components/MajTiles'
 
 type Props = {
   tiles: number[]
-  startWith: (tiles: number[]) => void
+  setTiles: Dispatch<number[]>
 }
 
-export const MajInput: FC<Props> = ({ tiles, startWith }) => {
-  const [tenhouStr, setTenhouStr] = useState(tilesToTenhou(tiles))
-  const onChange: ChangeEventHandler<HTMLInputElement> = (evt) => {
-    setTenhouStr(evt.target.value)
-  }
-  const submit = () => {
-    console.log(tenhouStr)
-    startWith(tenhouToTiles(tenhouStr))
-  }
+export const MajInput: FC<Props> = ({ tiles, setTiles }) => {
+  const [inputTiles, setInputTiles] = useState(initialTiles)
   return (
-    <div className="input-tenhou">
-      <input type="text" value={tenhouStr} onChange={onChange} />
-      <button onClick={submit}> 计算</button>
+    <div className="maj-input">
+      <div className="text">
+        <input
+          type="text"
+          placeholder={tilesToTenhou(tiles)}
+          onChange={evt => setInputTiles(tenhouToTiles(evt.target.value))}
+        />
+        <button onClick={() => setTiles(fillHand(inputTiles))} >计算</button>
+      </div>
+      <div className="hand">
+        <MajTiles tiles={tiles} />
+      </div>
     </div>
   )
 }

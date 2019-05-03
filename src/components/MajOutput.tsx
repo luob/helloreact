@@ -1,20 +1,19 @@
 import React, { FC } from "react"
 
-import { MajTiles } from './MajTile'
-import { Result } from 'utils/results'
+import { MajTiles } from './MajTiles'
+import { EffResult, Case } from 'utils/calculator'
 
 type Props = {
-  results: Result[]
-  errMsg: string
+  result: EffResult
 }
 
-export const MajResult: FC<Props> = ({ results, errMsg }) => {
+export const MajOutput: FC<Props> = ({ result }) => {
   const ErrMsg = (
     <div className="error">
-      < p > {errMsg}</p >
-    </div >
+      <p>{result.errMsg}</p>
+    </div>
   )
-  const ResultCases = results.map((result, i) => (
+  const Cases = result.cases.map((result, i) => (
     <div className="result-case" key={i}>
       <div className="shanten">
         <p>{result.shanten}向听: </p>
@@ -26,16 +25,16 @@ export const MajResult: FC<Props> = ({ results, errMsg }) => {
         {/* 预留概率显示 */}
       </div>
       <div className="improves">
-        <MajTiles tiles={result.improves} />)}
+        <MajTiles tiles={result.improves} />
       </div>
     </div>
   ))
 
-  const hasErr = errMsg !== ""
-  const Result = hasErr ? ErrMsg : ResultCases
+  const hasErr = result.errMsg !== ""
+  const Result = hasErr ? ErrMsg : Cases
 
   return (
-    <div className="maj-result">
+    <div className="maj-output">
       {Result}
     </div>
   )
